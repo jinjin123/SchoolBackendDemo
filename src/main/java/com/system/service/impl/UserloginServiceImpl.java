@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class UserloginServiceImpl implements UserloginService {
 
-    @Autowired
+    @Autowired(required = false )
     private UserloginMapper userloginMapper;
 
 
@@ -43,7 +43,6 @@ public class UserloginServiceImpl implements UserloginService {
         userloginMapper.deleteByExample(userloginExample);
     }
 
-    @Override
     public void updateByName(String name, Userlogin userlogin) {
         UserloginExample userloginExample = new UserloginExample();
 

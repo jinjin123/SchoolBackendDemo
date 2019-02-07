@@ -29,6 +29,6 @@ public class CourseMapperCustomTest {
         PagingVO pagingVO = new PagingVO();
         pagingVO.setToPageNo(1);
         List<CourseCustom> list = courseMapperCustom.findByPaging(pagingVO);
-        System.out.println();
+        System.out.println(list);
     }
 }

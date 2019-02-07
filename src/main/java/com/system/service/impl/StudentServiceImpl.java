@@ -19,13 +19,13 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
     //使用spring 自动注入
-    @Autowired
+    @Autowired(required = false)
     private StudentMapperCustom studentMapperCustom;
 
-    @Autowired
+    @Autowired(required = false)
     private StudentMapper studentMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private CollegeMapper collegeMapper;
 
     public void updataById(Integer id, StudentCustom studentCustom) throws Exception {
@@ -109,7 +109,6 @@ public class StudentServiceImpl implements StudentService {
         return studentCustomList;
     }
 
-    @Override
     public StudentCustom findStudentAndSelectCourseListByName(String name) throws Exception {
 
         StudentCustom studentCustom = studentMapperCustom.findStudentAndSelectCourseListById(Integer.parseInt(name));

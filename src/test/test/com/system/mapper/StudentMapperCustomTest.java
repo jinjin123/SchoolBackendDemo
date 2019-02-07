@@ -1,13 +1,14 @@
 package com.system.mapper;
 
 import com.system.po.PagingVO;
+import com.system.po.SelectedCourseCustom;
 import com.system.po.Student;
 import com.system.po.StudentCustom;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import org.json.JSONObject;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -31,10 +32,17 @@ public class StudentMapperCustomTest {
         StudentMapper studentMapper = (StudentMapper) applicationContext.getBean("studentMapper");
 
         PagingVO pagingVO = new PagingVO();
-        pagingVO.setToPageNo(1);
-        List<StudentCustom> list =  studentMapperCustom.findByPaging(pagingVO);
+//        pagingVO.setToPageNo(0);
+        pagingVO.setPageSize(5);
+//        String name = "小拉";
+        List<StudentCustom> studentCustom =  studentMapperCustom.findByPaging(pagingVO);
 //        Student student = studentMapper.selectByPrimaryKey(10001);
-        System.out.println();
+//        Object Obj = new JSONObject(studentCustom);
+//        System.out.println(Obj);
+        for(StudentCustom obj: studentCustom ){
+           Object Obj = new JSONObject(obj);
+           System.out.println(Obj);
+        }
 
     }
 
